@@ -40,10 +40,24 @@ const productNames = [
   "TELMITRIO-H",
 ];
 
+const itemsArray = products.map((product, index) => {
+  return (
+    <div key={index} className="w-4/5 h-4/5 my-8 bg-white shadow-xl">
+      <Link href={product.src} passHref target="_blank">
+        <Image
+          className="h-full w-full object-fill"
+          src={product}
+          alt={productNames[index]}
+        />
+      </Link>
+    </div>
+  );
+});
+
 const ProductCard = () => {
   return (
     <>
-      {products.map((product, index) => {
+      {/* {products.map((product, index) => {
         return (
           <div
             key={index}
@@ -58,7 +72,7 @@ const ProductCard = () => {
                     alt={productNames[index]}
                   />
                 </div>
-                {/* <div className="p-8">
+                <div className="p-8">
               <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
               Company retreats
               </div>
@@ -72,12 +86,15 @@ const ProductCard = () => {
                 Looking to take your team away on a retreat to enjoy awesome food
                 and take in some sunshine? We have a list of places to do just that.
                 </p>
-              </div> */}
+              </div>
               </div>
             </Link>
           </div>
         );
-      })}
+      })} */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 place-items-center">
+        {itemsArray}
+      </div>
     </>
   );
 };
